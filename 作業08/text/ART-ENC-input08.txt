@@ -1,0 +1,5 @@
+Alschair-1000.bmp + 20
+Anturium-512.bmp + 187
+BeaverDam-800.bmp - 27
+Blackcat-1280.jpg + 741
+Cars-1024.bmp - 45

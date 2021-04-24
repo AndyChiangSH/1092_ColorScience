@@ -1,0 +1,5 @@
+ART+20_Alschair-1000.bmp - 20 750
+ART+187_Anturium-512.bmp - 187 384
+ART-27_BeaverDam-800.bmp + 27 600
+ART+741_Blackcat-1280.jpg - 741 960
+ART-45_Cars-1024.bmp + 45 768
