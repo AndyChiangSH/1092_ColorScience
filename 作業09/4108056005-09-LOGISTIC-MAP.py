@@ -23,11 +23,6 @@ if r > 3.56995 and r <= 4:
     prex = x0
     for i in range(M):
         x = r*prex*(1-prex)
-
-        # Round to six decimal places
-        # d = Decimal(str(x))
-        # d = float(round(d, 6))
-
         logi.append(x)
         prex = x
 
@@ -38,11 +33,9 @@ if r > 3.56995 and r <= 4:
 
     # calculate mean of logi
     logi_mean = statistics.mean(logi)
-    # print(logi_mean)
 
     # calculate standard of logi
     logi_std = statistics.pstdev(logi)
-    # print(logi_std)
 
     # run default random
     rand = []
@@ -58,11 +51,9 @@ if r > 3.56995 and r <= 4:
 
     # calculate mean of rand
     rand_mean = statistics.mean(rand)
-    # print(rand_mean)
 
     # calculate standard of rand
     rand_std = statistics.pstdev(rand)
-    # print(rand_std)
 
     with open('output09.csv', 'w', newline='') as csvfile:
         # build CSV writer
@@ -74,11 +65,11 @@ if r > 3.56995 and r <= 4:
 
         # write logi and rand
         for i in range(M):
-            writer.writerow([i+1, logi[i], rand[i]])
+            writer.writerow([i+1, "%.6f" % logi[i], "%.6f" % rand[i]])
 
         # write mean and standard
-        writer.writerow(["mean", logi_mean, rand_mean])
-        writer.writerow(["std", logi_std, rand_std])
+        writer.writerow(["mean", "%.6f" % logi_mean, "%.6f" % rand_mean])
+        writer.writerow(["std", "%.6f" % logi_std, "%.6f" % rand_std])
 
 else:
     print("r is not in range(3.56995~4)!")
