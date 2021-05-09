@@ -26,11 +26,6 @@ if r > 3.56995 and r <= 4:
         logi.append(x)
         prex = x
 
-    # i = 1
-    # for s in logi:
-    #     print(i, s)
-    #     i += 1
-
     # calculate mean of logi
     logi_mean = statistics.mean(logi)
 
@@ -43,11 +38,6 @@ if r > 3.56995 and r <= 4:
     for i in range(M):
         x = random.random()
         rand.append(x)
-
-    # i = 1
-    # for s in rand:
-    #     print(i, s)
-    #     i += 1
 
     # calculate mean of rand
     rand_mean = statistics.mean(rand)
