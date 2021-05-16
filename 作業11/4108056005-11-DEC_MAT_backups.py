@@ -16,8 +16,35 @@ def image_process(img_path):
         # image shape: (H, V, rgb)
         H, V, channels = img.shape
 
+        # b_sum = 0
+        # g_sum = 0
+        # r_sum = 0
+
+        # for i in range(H):
+        #     for j in range(V):
+        #         b_sum += img[i, j, 0]
+        #         g_sum += img[i, j, 1]
+        #         r_sum += img[i, j, 2]
+
+        # b_mean = b_sum/float(H*V)
+        # g_mean = g_sum/float(H*V)
+        # r_mean = r_sum/float(H*V)
+
+        # print("b_mean = ", b_mean)
+        # print("g_mean = ", g_mean)
+        # print("r_mean = ", r_mean)
+
         # Part1: Mean of Image
         mi = img.mean(axis=0).mean(axis=0)
+        # print(mi)
+        # print(mi[0])
+
+        # for i, col in enumerate(['b', 'g', 'r']):
+        #     hist = cv2.calcHist([img], [], None, [256], [0, 256])
+        #     plt.plot(hist[i], color=col)
+        #     plt.xlim([0, 256])
+
+        # plt.show()
 
         # Part2: Variance of Histogram
         vh = list()
@@ -30,6 +57,8 @@ def image_process(img_path):
 
             vh.append((h_sum/(2*H*V))[0])
 
+        # print(vh)
+
         # Part3: Shannon Entropy
         se = list()
         for chn in range(3):
@@ -41,6 +70,8 @@ def image_process(img_path):
                     s_sum += pz*(math.log(pz, 2))
 
             se.append(-(s_sum))
+
+        # print(se[0][0])
 
         # 0:Blue 1:Green 2:Red
         return [mi[2], mi[1], mi[0], vh[2], vh[1], vh[0], se[2][0], se[1][0], se[0][0]]
@@ -62,7 +93,11 @@ if __name__ == "__main__":
     o_images = next(os.walk(dir_path))[2]
     # print(o_images)
 
-    with open('output11.csv', 'w', newline='') as csvfile:
+    # rel_path = "11-Images/Decry_image/"+d_images[0]
+    # print(rel_path)
+    # image_process(rel_path)
+
+    with open('output09.csv', 'w', newline='') as csvfile:
         # build CSV writer
         writer = csv.writer(csvfile)
 
@@ -80,7 +115,7 @@ if __name__ == "__main__":
 
             writer.writerow(ans)
 
-        with open('output11_en.csv', 'w', newline='') as csvfile:
+        with open('output09_en.csv', 'w', newline='') as csvfile:
             # build CSV writer
             writer = csv.writer(csvfile)
 
@@ -98,7 +133,7 @@ if __name__ == "__main__":
 
                 writer.writerow(ans)
 
-        with open('output11_de.csv', 'w', newline='') as csvfile:
+        with open('output09_de.csv', 'w', newline='') as csvfile:
             # build CSV writer
             writer = csv.writer(csvfile)
 

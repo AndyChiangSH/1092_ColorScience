@@ -1,5 +1,12 @@
 import os
-dirPath = r"D: \雲端\NCHU\大二\大二下\色彩科學導論\作業\作業11\11-Images\Decry_image"
-result = [f for f in os.listdir(
-    dirPath) if os.path.isfile(os.path.join(dirPath, f))]
-print(result)
+import math
+import numpy as np
+
+arr = np.array([0, 0, 0])
+np.append(arr, [1], axis=0)
+np.append(arr, 2)
+np.append(arr, 3)
+
+print(arr)
+
+print("%.2f" % 0.115)
