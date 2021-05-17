@@ -22,28 +22,28 @@ def image_process(img_path):
         # Part2: Variance of Histogram
         vh = list()
         for chn in range(3):
-            h_sum = 0
             hist = cv2.calcHist([img], [chn], None, [256], [0, 256])
+            h_sum = 0
             for i in range(256):
-                for j in range(256):
-                    h_sum += pow(hist[i]-hist[j], 2)
+                h_sum += pow(hist[i][0], 2)
 
-            vh.append((h_sum/(2*H*V))[0])
+            vh.append((h_sum/256.0)-pow((H*V/256.0), 2))
 
         # Part3: Shannon Entropy
         se = list()
         for chn in range(3):
             s_sum = 0.0
             hist = cv2.calcHist([img], [chn], None, [256], [0, 256])
+
             for i in range(256):
-                pz = hist[i]/float(H*V)
-                if hist[i] != 0:
+                if hist[i][0] != 0:
+                    pz = hist[i][0]/float(H*V)
                     s_sum += pz*(math.log(pz, 2))
 
             se.append(-(s_sum))
 
         # 0:Blue 1:Green 2:Red
-        return [mi[2], mi[1], mi[0], vh[2], vh[1], vh[0], se[2][0], se[1][0], se[0][0]]
+        return [mi[2], mi[1], mi[0], vh[2], vh[1], vh[0], se[2], se[1], se[0]]
 
 
 if __name__ == "__main__":
