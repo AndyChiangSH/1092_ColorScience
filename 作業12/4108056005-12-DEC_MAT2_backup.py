@@ -1,7 +1,6 @@
 # Color science hw12 - Encryption Metrics-2
 import os
 import cv2
-import matplotlib.pyplot as plt
 import math
 import csv
 
