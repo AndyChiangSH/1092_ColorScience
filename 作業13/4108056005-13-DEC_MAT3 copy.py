@@ -7,8 +7,12 @@ import numpy as np
 
 
 def get_ctap(img, mode):
+    # print(img)
 
     H, V = img.shape
+
+    # print(f"H = {H}")
+    # print(f"V = {V}")
 
     if mode == "HD":
         x_img = img[0:V, 0:H-1].flatten()
@@ -20,15 +24,28 @@ def get_ctap(img, mode):
         x_img = img[0:V-1, 0:H-1].flatten()
         y_img = img[1:V, 1:H].flatten()
 
+    # print(x_img)
+    # print(y_img)
+
     x_mean = np.mean(x_img)
     y_mean = np.mean(y_img)
+
+    # print(f"x_mean = {x_mean}")
+    # print(f"y_mean = {y_mean}")
 
     x_var = np.var(x_img)
     y_var = np.var(y_img)
 
+    # print(f"x_var = {x_var}")
+    # print(f"y_var = {y_var}")
+
     cov = np.cov(x_img, y_img)[0][1]
 
+    # print(f"cov = {cov}")
+
     corre = cov/float(math.sqrt(x_var*y_var))
+
+    # print(f"corre = {corre}")
 
     return x_mean, y_mean, x_var, y_var, cov, corre
 
@@ -55,6 +72,12 @@ def image_process(img_path):
 
 
 if __name__ == "__main__":
+
+    # ans = image_process("13-Images/Origi_image/01_Airplane.bmp")
+    # for a in ans:
+    #     for b in a:
+    #         print("%.2f" % b, end=", ")
+    #     print()
 
     # relative pathname of Origi_images
     dir_path = r"13-Images/Origi_image/"
