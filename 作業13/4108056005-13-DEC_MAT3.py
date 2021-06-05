@@ -109,11 +109,12 @@ if __name__ == "__main__":
                 else:
                     channel = "B"
 
-                mode = "HD"
-                if j >= 3:
-                    mode = "VD"
-                elif j >= 6:
+                if j >= 6:
                     mode = "DD"
+                elif j >= 3:
+                    mode = "VD"
+                else:
+                    mode = "HD"
 
                 ans = [o_images[i], mode, (channel+" Channel"), "%.2f" % r[0], "%.2f" % r[1], "%.2f" % r[2],
                        "%.2f" % r[3], "%.2f" % r[4], "%.6f" % r[5]]
@@ -131,11 +132,12 @@ if __name__ == "__main__":
                 else:
                     channel = "B"
 
-                mode = "HD"
-                if j >= 3:
-                    mode = "VD"
-                elif j >= 6:
+                if j >= 6:
                     mode = "DD"
+                elif j >= 3:
+                    mode = "VD"
+                else:
+                    mode = "HD"
 
                 ans = [e_images[i], mode, (channel+" Channel"), "%.2f" % r[0], "%.2f" % r[1], "%.2f" % r[2],
                        "%.2f" % r[3], "%.2f" % r[4], "%.6f" % r[5]]
